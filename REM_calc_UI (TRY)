@@ -1,0 +1,151 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'REM_calc.ui'
+#
+# Created: Sun Feb  8 17:32:16 2015
+#      by: PyQt4 UI code generator 4.9.3
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt4 import QtCore, QtGui
+from datetime import datetime, timedelta
+import sys
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    _fromUtf8 = lambda s: s
+
+class Ui_REM_calc(QtGui.QWidget):
+    def __init__(self):
+      QtGui.QWidget.__init__(self)
+      self.setupUi(self)
+    def setupUi(self, REM_calc):
+        REM_calc.setObjectName(_fromUtf8("REM_calc"))
+        REM_calc.resize(507, 300)
+        self.horizontalLayout = QtGui.QHBoxLayout(REM_calc)
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.verticalLayout = QtGui.QVBoxLayout()
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.calc_sleep_btn = QtGui.QPushButton(REM_calc)
+        self.calc_sleep_btn.setObjectName(_fromUtf8("calc_sleep_btn"))
+        self.verticalLayout.addWidget(self.calc_sleep_btn)
+        self.calc_wake_btn = QtGui.QPushButton(REM_calc)
+        self.calc_wake_btn.setObjectName(_fromUtf8("calc_wake_btn"))
+        self.verticalLayout.addWidget(self.calc_wake_btn)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+
+        self.retranslateUi(REM_calc)
+        QtCore.QMetaObject.connectSlotsByName(REM_calc)
+
+    def retranslateUi(self, REM_calc):
+        REM_calc.setWindowTitle(QtGui.QApplication.translate("REM_calc", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.calc_sleep_btn.setText(QtGui.QApplication.translate("REM_calc", "Calculate when to go to sleep", None, QtGui.QApplication.UnicodeUTF8))
+        self.calc_wake_btn.setText(QtGui.QApplication.translate("REM_calc", "Calculate waking time", None, QtGui.QApplication.UnicodeUTF8))
+        self.calc_sleep_btn.clicked.connect(self.calc_sleep)
+        self.calc_wake_btn.clicked.connect(self.calc_wake)
+        
+
+    def calc_wake():
+      print(datetime.now() + timedelta(hours=1, minutes = 30)) #All ideal waking times are printed.
+      print(datetime.now() + timedelta(hours=3))
+      print(datetime.now() + timedelta(hours=4, minutes = 30))
+      print(datetime.now() + timedelta(hours=6))
+      print(datetime.now() + timedelta(hours=7, minutes = 30))
+      print(datetime.now() + timedelta(hours=9))
+      print(datetime.now() + timedelta(hours=10, minutes = 30))
+
+    def calc_sleep():
+      wake_up_hour = input("> Select hour, write HH please ") #Here the user chooses hour and minute.
+      wake_up_minute = input("> Select minute, write MM please ")
+      x = int(wake_up_hour)    #Here the input is transformed into integers
+      y = int(wake_up_minute)
+      print("> Results: ") #From longest to shortest sleep time.
+      x = x - 10
+      y = y - 30
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y, "*IDEAL*")
+
+      x = int(wake_up_hour)  #This resets x and y to the value that the user chose before.
+      y = int(wake_up_minute)
+
+      x = x - 9
+      y = y - 00
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y, "*IDEAL*")
+
+      x = int(wake_up_hour)
+      y = int(wake_up_minute)
+
+      x = x - 7
+      y = y - 30
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y)
+
+      x = int(wake_up_hour)
+      y = int(wake_up_minute)
+
+      x = x - 6
+      y = y - 00
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y)
+
+      x = int(wake_up_hour)
+      y = int(wake_up_minute)
+
+      x = x - 4
+      y = y - 30
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y)
+
+      x = int(wake_up_hour)
+      y = int(wake_up_minute)
+
+      x = x - 3
+      y = y - 00
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y)
+
+      x = int(wake_up_hour)
+      y = int(wake_up_minute)
+
+      x = x - 1
+      y = y - 30
+      if x < 0:
+	x = 24 + x
+      if y < 0:
+	y = 60 + y
+
+      print(x, ":", y)
+  
+
+if __name__ == '__main__':
+  app = QtGui.QApplication(sys.argv)
+  ex = Ui_REM_calc()
+  ex.show()
+  sys.exit(app.exec_())
+
