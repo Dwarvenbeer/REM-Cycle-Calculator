@@ -1,0 +1,108 @@
+"""This script calculates both when you should go to sleep and when you should wake up depending on
+ REM cycles."""
+
+import sys 
+from datetime import datetime, timedelta 
+now = datetime.now()
+
+while True:
+  
+ class Now_calc:  #This calculates the time when you should wake up if you went to sleep right now.
+  choice = input("> Press 1 if you want to calculate when you should wake up. Press n to calculate when you should go to sleep. And X to exit: ")
+  if choice == "1":
+    print(datetime.now() + timedelta(hours=1, minutes = 30)) #All ideal waking times are printed.
+    print(datetime.now() + timedelta(hours=3))
+    print(datetime.now() + timedelta(hours=4, minutes = 30))
+    print(datetime.now() + timedelta(hours=6))
+    print(datetime.now() + timedelta(hours=7, minutes = 30))
+    print(datetime.now() + timedelta(hours=9))
+    print(datetime.now() + timedelta(hours=10, minutes = 30))
+  elif choice == "2": #This calculates the time when you should go to sleep depending on the time you want to wake up.
+    wake_up_hour = input("> Select hour, write HH please ") #Here the user chooses hour and minute.
+    wake_up_minute = input("> Select minute, write MM please ")
+    x = int(wake_up_hour)    #Here the input is transformed into integers 
+    y = int(wake_up_minute)
+    print("> Results: ") #From longest to shortest sleep time.
+    x = x - 10
+    y = y - 30
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y, "*IDEAL*")
+   
+    x = int(wake_up_hour)  #This resets x and y to the value that the user chose before so It make the next operation.
+    y = int(wake_up_minute)
+   
+    x = x - 9
+    y = y - 00
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y, "*IDEAL*")
+   
+    x = int(wake_up_hour)
+    y = int(wake_up_minute)
+   
+    x = x - 7
+    y = y - 30
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y)
+    
+    x = int(wake_up_hour)
+    y = int(wake_up_minute)
+    
+    x = x - 6
+    y = y - 00
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y)
+    
+    x = int(wake_up_hour)
+    y = int(wake_up_minute)
+   
+    x = x - 4
+    y = y - 30
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y)
+   
+    x = int(wake_up_hour)
+    y = int(wake_up_minute)
+    
+    x = x - 3
+    y = y - 00
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y)
+      
+    x = int(wake_up_hour)
+    y = int(wake_up_minute)
+   
+    x = x - 1
+    y = y - 30
+    if x < 0:
+      x = 24 + x
+    if y < 0:
+      y = 60 + y
+   
+    print(x, ":", y)
+   
+  elif choice == "X":
+     sys.exit()
